@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<h1>User List</h1>
+<div class="container">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>LastName</th>
+            <th>Age</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">Id</td>
+            <td th:text="${user.name}">Name</td>
+            <td th:text="${user.lastName}">LastName</td>
+            <td th:text="${user.age}">Age</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form method="post" action="/addUser">
+        <label for="name_add">User Name</label>
+        <input name="name" type="text" id="name_add">
+        <br>
+        <label for="lastName_add">User LastName</label>
+        <input name="lastName" type="text" id="lastName_add">
+        <br>
+        <label for="age_add">User Age</label>
+        <input name="age" type="number" id="age_add">
+        <br>
+        <input type="submit" value="Add User">
+    </form>
+
+    <form method="post" action="/deleteUser">
+        <label for="id_delete">User ID</label>
+        <input name="id" type="text" id="id_delete">
+        <br>
+        <input type="submit" value="Delete User">
+    </form>
+    <form method="post" action="/updateUser">
+        <label for="id_update">User ID</label>
+        <input name="id" type="text" id="id_update">
+        <br>
+        <label for="name_update">User Name</label>
+        <input name="name" type="text" id="name_update">
+        <br>
+        <label for="lastName_update">User LastName</label>
+        <input name="lastName" type="text" id="lastName_update">
+        <br>
+        <label for="age_update">User Age</label>
+        <input name="age" type="number" id="age_update">
+        <br>
+        <input type="submit" value="Update User">
+    </form>
+</div>
+</body>
+</html>
